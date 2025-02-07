@@ -1,3 +1,10 @@
+import { useGetSeminars } from './hooks/useGetSeminars';
+
 export const App = () => {
-  return <div className=""></div>;
+  const { data } = useGetSeminars();
+  return (
+    <div className="">
+      {data?.map(seminar => <div key={seminar.id}>{seminar.date}</div>)}
+    </div>
+  );
 };

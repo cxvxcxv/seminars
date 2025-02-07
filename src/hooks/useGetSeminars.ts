@@ -1,10 +1,12 @@
-import { useMutation } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 import { SeminarService } from '../services/seminar.service';
 
 export const useGetSeminars = () => {
-  return useMutation({
-    mutationKey: ['getSeminars'],
-    mutationFn: () => SeminarService.getSeminars(),
+  const { data, isLoading } = useQuery({
+    queryKey: ['getSeminars'],
+    queryFn: () => SeminarService.getSeminars(),
   });
+
+  return { data, isLoading };
 };
