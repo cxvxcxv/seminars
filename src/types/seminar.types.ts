@@ -6,8 +6,8 @@ export interface ISeminar extends TSeminarInput {
 //seminar input data
 export type TSeminarInput = {
   title: string;
-  description: string;
+  description?: string;
   date: string;
   time: string;
-  photo: string;
+  photo?: string;
 };

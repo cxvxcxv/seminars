@@ -7,16 +7,21 @@ import { ButtonInactive } from './ui/button/ButtonInactive';
 
 type TSeminarCardProps = {
   seminar: ISeminar;
-  triggerSeminar: (seminar: ISeminar) => void;
+  triggerEditSeminar: (seminar: ISeminar) => void;
+  triggerDeleteSeminar: (seminar: ISeminar) => void;
 };
 
-export const SeminarCard = ({ seminar, triggerSeminar }: TSeminarCardProps) => {
+export const SeminarCard = ({
+  seminar,
+  triggerEditSeminar,
+  triggerDeleteSeminar,
+}: TSeminarCardProps) => {
   return (
     <div className="flex flex-col rounded-md border border-gray-400">
       <img
         src={seminar.photo}
         alt=""
-        className="w-full rounded-t-md object-cover"
+        className="aspect-square w-full rounded-t-md object-cover"
       />
       <div className="flex w-full grow flex-col gap-4 p-4">
         <p className="text-black opacity-70">
@@ -25,12 +30,15 @@ export const SeminarCard = ({ seminar, triggerSeminar }: TSeminarCardProps) => {
         <h6>{seminar.title}</h6>
         <p className="grow text-sm">{seminar.description}</p>
         <div className="mt-4 flex justify-between">
-          <ButtonActive className="flex items-center gap-1 rounded-sm border border-transparent p-2 transition-colors hover:border-yellow-400 hover:text-yellow-500">
+          <ButtonActive
+            onClick={() => triggerEditSeminar(seminar)}
+            className="flex items-center gap-1 rounded-sm border border-transparent p-2 transition-colors hover:border-yellow-400 hover:text-yellow-500"
+          >
             <Pencil className="w-5" />
             Редактировать
           </ButtonActive>
           <ButtonInactive
-            onClick={() => triggerSeminar(seminar)}
+            onClick={() => triggerDeleteSeminar(seminar)}
             className="flex items-center gap-1 rounded-sm border border-transparent p-2 transition-colors hover:border-red-500 hover:text-red-500"
           >
             <Trash2 strokeWidth={1.5} className="w-5" /> Удалить

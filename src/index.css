@@ -20,4 +20,9 @@
     font-weight: 600;
     font-size: large;
   }
+
+  input,
+  textarea {
+    padding: 0.5rem;
+  }
 }

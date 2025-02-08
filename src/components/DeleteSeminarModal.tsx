@@ -10,19 +10,19 @@ import { ButtonActive } from './ui/button/ButtonActive';
 
 type TDeleteSeminarModalProps = {
   seminar: ISeminar | null;
-  triggerSeminar: (seminar: ISeminar | null) => void;
+  triggerDeleteSeminar: (seminar: ISeminar | null) => void;
 };
 
 export const DeleteSeminarModal = ({
   seminar,
-  triggerSeminar,
+  triggerDeleteSeminar,
 }: TDeleteSeminarModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { mutate } = useDeleteSeminar();
 
   const onClose = () => {
     setIsOpen(false);
-    triggerSeminar(null);
+    triggerDeleteSeminar(null);
   };
 
   const onDelete = () => {
