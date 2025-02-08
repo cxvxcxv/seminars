@@ -27,7 +27,7 @@ export const Modal = ({
       <div
         onClick={e => e.stopPropagation()}
         className={clsx(
-          'max-w-1/3 rounded-xl bg-white p-6 shadow transition-all',
+          'max-h-full max-w-4/5 overflow-y-auto rounded-xl bg-white p-6 shadow transition-all md:max-w-2/3 lg:max-w-1/3',
           className,
           {
             'scale-100 opacity-100': isOpen,

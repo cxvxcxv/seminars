@@ -16,7 +16,7 @@ export const App = () => {
   return (
     <section className="flex flex-col items-center p-16">
       <h1 className="mb-16 text-5xl">Активные семинары</h1>
-      <section className="grid grid-cols-3 gap-x-8 gap-y-12">
+      <section className="grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
         {/* rendering seminars */}
         {data?.map(seminar => (
           <SeminarCard
